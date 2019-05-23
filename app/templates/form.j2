@@ -1,0 +1,15 @@
+{% extends 'base.j2' %}
+
+{% block head %}
+        <title>Currency Converter</title>
+{% endblock %}
+
+{% block body %}
+        {% if parsed %} 
+            <p>{{ parsed['base'] }} / {{ to }} {{ parsed['date'] }} {{ parsed['rates'][to] }}</p>
+            <p>{{ amount }} {{ parsed['base'] }} = {{ '%0.2f' % (amount * parsed['rates'][to])|float }} {{ to }}</p>           
+        {% endif %}
+
+        {% include 'form.html' %}
+{% endblock %}
+
